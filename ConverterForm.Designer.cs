@@ -30,30 +30,30 @@ namespace CurrencyConverter
         private void InitializeComponent()
         {
             this.paneltop = new System.Windows.Forms.Panel();
-            this.panelbottom = new System.Windows.Forms.Panel();
-            this.panelleft = new System.Windows.Forms.Panel();
-            this.panelright = new System.Windows.Forms.Panel();
-            this.panelcenter = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.picmode = new System.Windows.Forms.PictureBox();
+            this.panelbottom = new System.Windows.Forms.Panel();
             this.picgithub = new System.Windows.Forms.PictureBox();
+            this.panelleft = new System.Windows.Forms.Panel();
             this.picstatus_1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.panelright = new System.Windows.Forms.Panel();
             this.picstatus_2 = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.panelcenter = new System.Windows.Forms.Panel();
             this.picswap = new System.Windows.Forms.PictureBox();
             this.paneltop.SuspendLayout();
-            this.panelbottom.SuspendLayout();
-            this.panelleft.SuspendLayout();
-            this.panelright.SuspendLayout();
-            this.panelcenter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picmode)).BeginInit();
+            this.panelbottom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picgithub)).BeginInit();
+            this.panelleft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picstatus_1)).BeginInit();
+            this.panelright.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picstatus_2)).BeginInit();
+            this.panelcenter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picswap)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,6 +67,15 @@ namespace CurrencyConverter
             this.paneltop.Size = new System.Drawing.Size(450, 34);
             this.paneltop.TabIndex = 0;
             // 
+            // picmode
+            // 
+            this.picmode.Location = new System.Drawing.Point(369, 1);
+            this.picmode.Name = "picmode";
+            this.picmode.Size = new System.Drawing.Size(80, 32);
+            this.picmode.TabIndex = 0;
+            this.picmode.TabStop = false;
+            this.picmode.Click += new System.EventHandler(this.picmode_Click);
+            // 
             // panelbottom
             // 
             this.panelbottom.Controls.Add(this.picgithub);
@@ -75,6 +84,15 @@ namespace CurrencyConverter
             this.panelbottom.Name = "panelbottom";
             this.panelbottom.Size = new System.Drawing.Size(450, 34);
             this.panelbottom.TabIndex = 1;
+            // 
+            // picgithub
+            // 
+            this.picgithub.Location = new System.Drawing.Point(417, 1);
+            this.picgithub.Name = "picgithub";
+            this.picgithub.Size = new System.Drawing.Size(32, 32);
+            this.picgithub.TabIndex = 0;
+            this.picgithub.TabStop = false;
+            this.picgithub.Click += new System.EventHandler(this.picgithub_Click);
             // 
             // panelleft
             // 
@@ -88,6 +106,40 @@ namespace CurrencyConverter
             this.panelleft.Size = new System.Drawing.Size(200, 311);
             this.panelleft.TabIndex = 2;
             // 
+            // picstatus_1
+            // 
+            this.picstatus_1.Location = new System.Drawing.Point(169, 10);
+            this.picstatus_1.Name = "picstatus_1";
+            this.picstatus_1.Size = new System.Drawing.Size(24, 24);
+            this.picstatus_1.TabIndex = 3;
+            this.picstatus_1.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(6, 155);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(187, 46);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Сменить валюту";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(53, 99);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(90, 39);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "USD";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(7, 8);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(155, 26);
+            this.textBox1.TabIndex = 0;
+            // 
             // panelright
             // 
             this.panelright.Controls.Add(this.picstatus_2);
@@ -100,38 +152,22 @@ namespace CurrencyConverter
             this.panelright.Size = new System.Drawing.Size(200, 311);
             this.panelright.TabIndex = 3;
             // 
-            // panelcenter
+            // picstatus_2
             // 
-            this.panelcenter.Controls.Add(this.picswap);
-            this.panelcenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelcenter.Location = new System.Drawing.Point(200, 34);
-            this.panelcenter.Name = "panelcenter";
-            this.panelcenter.Size = new System.Drawing.Size(50, 311);
-            this.panelcenter.TabIndex = 4;
+            this.picstatus_2.Location = new System.Drawing.Point(169, 10);
+            this.picstatus_2.Name = "picstatus_2";
+            this.picstatus_2.Size = new System.Drawing.Size(24, 24);
+            this.picstatus_2.TabIndex = 4;
+            this.picstatus_2.TabStop = false;
             // 
-            // textBox1
+            // button2
             // 
-            this.textBox1.Location = new System.Drawing.Point(7, 8);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(155, 26);
-            this.textBox1.TabIndex = 0;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(7, 8);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(155, 26);
-            this.textBox2.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(53, 99);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 39);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "USD";
+            this.button2.Location = new System.Drawing.Point(6, 155);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(187, 46);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Сменить валюту";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -143,55 +179,21 @@ namespace CurrencyConverter
             this.label2.TabIndex = 2;
             this.label2.Text = "USD";
             // 
-            // button1
+            // textBox2
             // 
-            this.button1.Location = new System.Drawing.Point(6, 155);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(187, 46);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Сменить валюту";
-            this.button1.UseVisualStyleBackColor = true;
+            this.textBox2.Location = new System.Drawing.Point(7, 8);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(155, 26);
+            this.textBox2.TabIndex = 1;
             // 
-            // button2
+            // panelcenter
             // 
-            this.button2.Location = new System.Drawing.Point(6, 155);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(187, 46);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Сменить валюту";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // picmode
-            // 
-            this.picmode.Location = new System.Drawing.Point(369, 1);
-            this.picmode.Name = "picmode";
-            this.picmode.Size = new System.Drawing.Size(80, 32);
-            this.picmode.TabIndex = 0;
-            this.picmode.TabStop = false;
-            // 
-            // picgithub
-            // 
-            this.picgithub.Location = new System.Drawing.Point(417, 1);
-            this.picgithub.Name = "picgithub";
-            this.picgithub.Size = new System.Drawing.Size(32, 32);
-            this.picgithub.TabIndex = 0;
-            this.picgithub.TabStop = false;
-            // 
-            // picstatus_1
-            // 
-            this.picstatus_1.Location = new System.Drawing.Point(169, 10);
-            this.picstatus_1.Name = "picstatus_1";
-            this.picstatus_1.Size = new System.Drawing.Size(24, 24);
-            this.picstatus_1.TabIndex = 3;
-            this.picstatus_1.TabStop = false;
-            // 
-            // picstatus_2
-            // 
-            this.picstatus_2.Location = new System.Drawing.Point(169, 10);
-            this.picstatus_2.Name = "picstatus_2";
-            this.picstatus_2.Size = new System.Drawing.Size(24, 24);
-            this.picstatus_2.TabIndex = 4;
-            this.picstatus_2.TabStop = false;
+            this.panelcenter.Controls.Add(this.picswap);
+            this.panelcenter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelcenter.Location = new System.Drawing.Point(200, 34);
+            this.panelcenter.Name = "panelcenter";
+            this.panelcenter.Size = new System.Drawing.Size(50, 311);
+            this.panelcenter.TabIndex = 4;
             // 
             // picswap
             // 
@@ -216,16 +218,16 @@ namespace CurrencyConverter
             this.Name = "ConverterForm";
             this.Text = "Конвертер валют";
             this.paneltop.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picmode)).EndInit();
             this.panelbottom.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picgithub)).EndInit();
             this.panelleft.ResumeLayout(false);
             this.panelleft.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picstatus_1)).EndInit();
             this.panelright.ResumeLayout(false);
             this.panelright.PerformLayout();
-            this.panelcenter.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picmode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picgithub)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picstatus_1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picstatus_2)).EndInit();
+            this.panelcenter.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picswap)).EndInit();
             this.ResumeLayout(false);
 

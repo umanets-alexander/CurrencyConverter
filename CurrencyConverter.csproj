@@ -55,6 +55,7 @@
     <Compile Include="ConverterForm.Designer.cs">
       <DependentUpon>ConverterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ImageDownload.cs" />
     <Compile Include="JSONConnect.cs" />
     <Compile Include="JSONConvert.cs" />
     <Compile Include="Program.cs" />
