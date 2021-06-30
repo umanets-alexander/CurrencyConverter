@@ -25,7 +25,6 @@ namespace CurrencyConverter
         public double Previous_2 = 0.0;
         public bool darkmode = false;
         public bool swap = false;
-        static System.Windows.Forms.Timer myTimer = new System.Windows.Forms.Timer();
 
         public ConverterForm()
         {
@@ -45,15 +44,16 @@ namespace CurrencyConverter
             panelbottom.Visible = paneltop.Visible = panelleft.Visible = panelright.Visible = panelcenter.Visible = result;
         }
 
-        private void screenloading ()
+        private async void screenloading()
         {
             PictureBox picloading = new PictureBox();
             picloading.Image = Image.FromFile(Path.GetFullPath(@"icon\loading.gif"));
             picloading.Dock = DockStyle.Fill;
             picloading.SizeMode = PictureBoxSizeMode.CenterImage;
             this.Controls.Add(picloading);
-            System.Threading.Thread.Sleep(5000);
+            await Task.Delay(3000);
             picloading.Dispose();
+            screenconvert(true);
         }
 
         private void picgithub_Click(object sender, EventArgs e)
