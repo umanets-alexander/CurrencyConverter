@@ -42,6 +42,10 @@ namespace CurrencyConverter
             {
                 client.DownloadFile(new Uri("https://raw.githubusercontent.com/umanets-alexander/CurrencyConverter/main/icon/github.png"), Path.GetFullPath(@"icon\github.png"));
             }
+            if (Path.GetFullPath(@"icon\loading.gif") != null)
+            {
+                client.DownloadFile(new Uri("https://raw.githubusercontent.com/umanets-alexander/CurrencyConverter/main/icon/loading.gif"), Path.GetFullPath(@"icon\loading.gif"));
+            }
         }
     }
 }
