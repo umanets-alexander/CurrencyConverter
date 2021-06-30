@@ -81,6 +81,8 @@ namespace CurrencyConverter
             this.text_2.Name = "text_2";
             this.text_2.Size = new System.Drawing.Size(155, 26);
             this.text_2.TabIndex = 1;
+            this.text_2.Text = "0";
+            this.text_2.TextChanged += new System.EventHandler(this.text_2_TextChanged);
             this.text_2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_2_KeyPress);
             // 
             // label_2
@@ -135,6 +137,7 @@ namespace CurrencyConverter
             this.text_1.Name = "text_1";
             this.text_1.Size = new System.Drawing.Size(155, 26);
             this.text_1.TabIndex = 0;
+            this.text_1.Text = "0";
             this.text_1.TextChanged += new System.EventHandler(this.text_1_TextChanged);
             this.text_1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_1_KeyPress);
             // 

@@ -42,6 +42,9 @@ namespace CurrencyConverter
                 picmode.Image = Image.FromFile(Path.GetFullPath(@"icon\darkmode.png"));
             picswap.Image = Image.FromFile(Path.GetFullPath(@"icon\swap.png"));
             picgithub.Image = Image.FromFile(Path.GetFullPath(@"icon\github.png"));
+            JSONConnect.connectJSON();
+            Variables.value("USD", ref Nominal_1, ref Name_1, ref Value_1, ref Previous_1);
+            Variables.value("EUR", ref Nominal_2, ref Name_2, ref Value_2, ref Previous_2);
             label_1.Text = CharCode_1;
             label_2.Text = CharCode_2;
         }
@@ -100,7 +103,7 @@ namespace CurrencyConverter
 
         private void text_1_TextChanged(object sender, EventArgs e)
         {
-            
+            text_2.Text = Convert.ToString(Math.Round((Convert.ToDouble(text_1.Text) * (Value_1 / Nominal_1)) / (Value_2 / Nominal_2),4));
         }
 
         private void picswap_Click_1(object sender, EventArgs e)
@@ -152,6 +155,11 @@ namespace CurrencyConverter
             {
                     e.Handled = true;
             }
+        }
+
+        private void text_2_TextChanged(object sender, EventArgs e)
+        {
+            text_1.Text = Convert.ToString(Math.Round((Convert.ToDouble(text_2.Text) * (Value_2 / Nominal_2)) / (Value_1 / Nominal_1),4));
         }
     }
 }
