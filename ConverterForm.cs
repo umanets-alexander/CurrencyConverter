@@ -25,6 +25,7 @@ namespace CurrencyConverter
         public double Previous_2 = 0.0;
         public bool darkmode = false;
         public bool swap = false;
+        static System.Windows.Forms.Timer myTimer = new System.Windows.Forms.Timer();
 
         public ConverterForm()
         {
@@ -37,6 +38,22 @@ namespace CurrencyConverter
                 picmode.Image = Image.FromFile(Path.GetFullPath(@"icon\darkmode.png"));
             picswap.Image = Image.FromFile(Path.GetFullPath(@"icon\swap.png"));
             picgithub.Image = Image.FromFile(Path.GetFullPath(@"icon\github.png"));
+        }
+
+        private void screenconvert (bool result)
+        {
+            panelbottom.Visible = paneltop.Visible = panelleft.Visible = panelright.Visible = panelcenter.Visible = result;
+        }
+
+        private void screenloading ()
+        {
+            PictureBox picloading = new PictureBox();
+            picloading.Image = Image.FromFile(Path.GetFullPath(@"icon\loading.gif"));
+            picloading.Dock = DockStyle.Fill;
+            picloading.SizeMode = PictureBoxSizeMode.CenterImage;
+            this.Controls.Add(picloading);
+            System.Threading.Thread.Sleep(5000);
+            picloading.Dispose();
         }
 
         private void picgithub_Click(object sender, EventArgs e)
@@ -57,6 +74,12 @@ namespace CurrencyConverter
                 picmode.Image = Image.FromFile(Path.GetFullPath(@"icon\lightmode.png"));
             }
                 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            screenconvert(false);
+            screenloading();
         }
     }
 }
