@@ -69,6 +69,65 @@ namespace CurrencyConverter
                 screenconvert(true);
         }
 
+        private void screentable()
+        {
+            DataGridView dataGridView = new DataGridView();
+            dataGridView.Dock = DockStyle.Fill;
+            dataGridView.RowHeadersVisible = false;
+            dataGridView.AllowUserToAddRows = false;
+            dataGridView.AllowUserToDeleteRows = false;
+            dataGridView.ReadOnly = false;
+            dataGridView.Columns.Add("Names", "Название");
+            dataGridView.Columns.Add("Codes", "Код");
+            dataGridView.Columns.Add("Check", "Выбран");
+            dataGridView.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridView.Columns[1].Width = 50;
+            dataGridView.Columns[2].Width = 70;
+            dataGridView.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
+            dataGridView.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
+            dataGridView.Columns[2].SortMode = DataGridViewColumnSortMode.NotSortable;
+            dataGridView.ColumnHeadersHeight = 30;
+            dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridView.Rows.Add("Российский рубль", "RUB");
+            dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.AUD.Name, JSONConnect.DataCurrency.Valute.AUD.CharCode);
+            dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.AZN.Name, JSONConnect.DataCurrency.Valute.AZN.CharCode);
+            dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.GBP.Name, JSONConnect.DataCurrency.Valute.GBP.CharCode);
+            dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.AMD.Name, JSONConnect.DataCurrency.Valute.AMD.CharCode);
+            dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.BYN.Name, JSONConnect.DataCurrency.Valute.BYN.CharCode);
+            dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.BGN.Name, JSONConnect.DataCurrency.Valute.BGN.CharCode);
+            dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.BRL.Name, JSONConnect.DataCurrency.Valute.BRL.CharCode);
+            dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.HUF.Name, JSONConnect.DataCurrency.Valute.HUF.CharCode);
+            dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.HKD.Name, JSONConnect.DataCurrency.Valute.HKD.CharCode);
+            dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.DKK.Name, JSONConnect.DataCurrency.Valute.DKK.CharCode);
+            dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.USD.Name, JSONConnect.DataCurrency.Valute.USD.CharCode);
+            dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.EUR.Name, JSONConnect.DataCurrency.Valute.EUR.CharCode);
+            dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.INR.Name, JSONConnect.DataCurrency.Valute.INR.CharCode);
+            dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.KZT.Name, JSONConnect.DataCurrency.Valute.KZT.CharCode);
+            dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.CAD.Name, JSONConnect.DataCurrency.Valute.CAD.CharCode);
+            dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.KGS.Name, JSONConnect.DataCurrency.Valute.KGS.CharCode);
+            dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.CNY.Name, JSONConnect.DataCurrency.Valute.CNY.CharCode);
+            dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.MDL.Name, JSONConnect.DataCurrency.Valute.MDL.CharCode);
+            dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.NOK.Name, JSONConnect.DataCurrency.Valute.NOK.CharCode);
+            dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.PLN.Name, JSONConnect.DataCurrency.Valute.PLN.CharCode);
+            dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.RON.Name, JSONConnect.DataCurrency.Valute.RON.CharCode);
+            dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.XDR.Name, JSONConnect.DataCurrency.Valute.XDR.CharCode);
+            dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.SGD.Name, JSONConnect.DataCurrency.Valute.SGD.CharCode);
+            dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.TJS.Name, JSONConnect.DataCurrency.Valute.TJS.CharCode);
+            dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.TRY.Name, JSONConnect.DataCurrency.Valute.TRY.CharCode);
+            dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.TMT.Name, JSONConnect.DataCurrency.Valute.TMT.CharCode);
+            dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.UZS.Name, JSONConnect.DataCurrency.Valute.UZS.CharCode);
+            dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.UAH.Name, JSONConnect.DataCurrency.Valute.UAH.CharCode);
+            dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.CZK.Name, JSONConnect.DataCurrency.Valute.CZK.CharCode);
+            dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.SEK.Name, JSONConnect.DataCurrency.Valute.SEK.CharCode);
+            dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.CHF.Name, JSONConnect.DataCurrency.Valute.CHF.CharCode);
+            dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.ZAR.Name, JSONConnect.DataCurrency.Valute.ZAR.CharCode);
+            dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.KRW.Name, JSONConnect.DataCurrency.Valute.KRW.CharCode);
+            dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.JPY.Name, JSONConnect.DataCurrency.Valute.JPY.CharCode);
+            this.Controls.Add(dataGridView);
+        }
+
         private void picgithub_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/umanets-alexander/CurrencyConverter");
@@ -91,8 +150,11 @@ namespace CurrencyConverter
 
         private void button1_Click(object sender, EventArgs e)
         {
+            /*screenconvert(false);
+            screenloading("converter");*/
             screenconvert(false);
-            screenloading("converter");
+            screentable();
+
         }
 
         private void button2_Click(object sender, EventArgs e)
