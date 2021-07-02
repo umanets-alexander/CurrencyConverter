@@ -181,9 +181,9 @@ namespace CurrencyConverter
             // 
             // picmode
             // 
-            this.picmode.Location = new System.Drawing.Point(369, 1);
+            this.picmode.Location = new System.Drawing.Point(417, 1);
             this.picmode.Name = "picmode";
-            this.picmode.Size = new System.Drawing.Size(80, 32);
+            this.picmode.Size = new System.Drawing.Size(32, 32);
             this.picmode.TabIndex = 0;
             this.picmode.TabStop = false;
             this.picmode.Click += new System.EventHandler(this.picmode_Click);
