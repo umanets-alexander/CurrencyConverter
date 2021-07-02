@@ -54,22 +54,26 @@ namespace CurrencyConverter
             panelbottom.Visible = paneltop.Visible = panelleft.Visible = panelright.Visible = panelcenter.Visible = result;
         }
 
-        private async void screenloading(string name)
+        private async void screenloading(string name, string values, bool first)
         {
             PictureBox picloading = new PictureBox();
             picloading.Image = Image.FromFile(Path.GetFullPath(@"icon\loading.gif"));
             picloading.Dock = DockStyle.Fill;
             picloading.SizeMode = PictureBoxSizeMode.CenterImage;
             this.Controls.Add(picloading);
-            await Task.Delay(3000);
+            await Task.Delay(500);
             picloading.Dispose();
             if (name == "converter")
                 screenconvert(true);
-            else if (name == "data")
-                screenconvert(true);
+            else if (name == "table")
+            {
+                screenconvert(false);
+                screentable(values, first);
+            }
+
         }
 
-        private void screentable()
+        private void screentable(string values, bool first)
         {
             DataGridView dataGridView = new DataGridView();
             dataGridView.Dock = DockStyle.Fill;
@@ -126,6 +130,26 @@ namespace CurrencyConverter
             dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.KRW.Name, JSONConnect.DataCurrency.Valute.KRW.CharCode);
             dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.JPY.Name, JSONConnect.DataCurrency.Valute.JPY.CharCode);
             this.Controls.Add(dataGridView);
+            for (int i = 0; i < dataGridView.RowCount; i++)
+            {
+                if (dataGridView.Rows[i].Cells[1].Value.ToString() == values)
+                    dataGridView.Rows[i].Cells[2].Value = "\u2713";
+            }
+            dataGridView.CellClick += (object sender, DataGridViewCellEventArgs e) =>
+            {
+                if (first == true)
+                {
+                    Variables.value(dataGridView[1, dataGridView.CurrentCell.RowIndex].Value.ToString(), ref Nominal_1, ref Name_1, ref Value_1, ref Previous_1);
+                    label_1.Text = CharCode_1 = dataGridView[1, dataGridView.CurrentCell.RowIndex].Value.ToString();
+                }
+                else
+                {
+                    Variables.value(dataGridView[1, dataGridView.CurrentCell.RowIndex].Value.ToString(), ref Nominal_2, ref Name_2, ref Value_2, ref Previous_2);
+                    label_2.Text = CharCode_2 = dataGridView[1, dataGridView.CurrentCell.RowIndex].Value.ToString();
+                }
+                dataGridView.Dispose();
+                screenloading("converter", null, false);
+            };
         }
 
         private void picgithub_Click(object sender, EventArgs e)
@@ -150,17 +174,14 @@ namespace CurrencyConverter
 
         private void button1_Click(object sender, EventArgs e)
         {
-            /*screenconvert(false);
-            screenloading("converter");*/
             screenconvert(false);
-            screentable();
-
+            screenloading("table", CharCode_1, true);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             screenconvert(false);
-            screenloading("converter");
+            screenloading("table", CharCode_2, false);
         }
 
         private void text_1_TextChanged(object sender, EventArgs e)
