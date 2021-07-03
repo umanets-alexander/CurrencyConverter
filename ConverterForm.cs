@@ -40,6 +40,7 @@ namespace CurrencyConverter
                 picmode.Image = Image.FromFile(Path.GetFullPath(@"icon\darkmode.png"));
             else
                 picmode.Image = Image.FromFile(Path.GetFullPath(@"icon\lightmode.png"));
+            colormode(darkmode);
             picswap.Image = Image.FromFile(Path.GetFullPath(@"icon\swap.png"));
             picgithub.Image = Image.FromFile(Path.GetFullPath(@"icon\github.png"));
             JSONConnect.connectJSON();
@@ -80,6 +81,7 @@ namespace CurrencyConverter
             dataGridView.RowHeadersVisible = false;
             dataGridView.AllowUserToAddRows = false;
             dataGridView.AllowUserToDeleteRows = false;
+            dataGridView.EnableHeadersVisualStyles = false;
             dataGridView.ReadOnly = false;
             dataGridView.Columns.Add("Names", "Название");
             dataGridView.Columns.Add("Codes", "Код");
@@ -130,10 +132,23 @@ namespace CurrencyConverter
             dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.KRW.Name, JSONConnect.DataCurrency.Valute.KRW.CharCode);
             dataGridView.Rows.Add(JSONConnect.DataCurrency.Valute.JPY.Name, JSONConnect.DataCurrency.Valute.JPY.CharCode);
             this.Controls.Add(dataGridView);
+            dataGridView.Rows[0].Cells[0].Selected = false;
+            if (darkmode == false)
+            {
+                dataGridView.ForeColor = ColorTranslator.FromHtml("#33363B");
+                dataGridView.GridColor = ColorTranslator.FromHtml("#33363B");
+                dataGridView.DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#E0E6C8");
+                dataGridView.ColumnHeadersDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#E0E6C8");
+                dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#E0E6C8");
+                dataGridView.DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#96998A");
+            }
             for (int i = 0; i < dataGridView.RowCount; i++)
             {
                 if (dataGridView.Rows[i].Cells[1].Value.ToString() == values)
+                {
                     dataGridView.Rows[i].Cells[2].Value = "\u2713";
+                    dataGridView.Rows[i].Cells[1].Selected = true;
+                }    
             }
             dataGridView.CellClick += (object sender, DataGridViewCellEventArgs e) =>
             {
@@ -159,6 +174,22 @@ namespace CurrencyConverter
             System.Diagnostics.Process.Start("https://github.com/umanets-alexander/CurrencyConverter");
         }
 
+        private void colormode(bool result)
+        {
+            if (result == false)
+            {
+                panelbottom.BackColor = panelcenter.BackColor = panelleft.BackColor = panelright.BackColor = paneltop.BackColor = this.BackColor = ColorTranslator.FromHtml("#DFE2E6");
+                button_1.BackColor = button_2.BackColor = ColorTranslator.FromHtml("#E0E6C8");
+                button_1.ForeColor = button_2.ForeColor = ColorTranslator.FromHtml("#33363B");
+                label_1.ForeColor = label_2.ForeColor = ColorTranslator.FromHtml("#33363B");
+                text_1.BackColor = text_2.BackColor = ColorTranslator.FromHtml("#E0E6C8");
+                text_1.ForeColor = text_2.ForeColor = ColorTranslator.FromHtml("#33363B");
+            }
+            
+
+
+        }
+
         private void picmode_Click(object sender, EventArgs e)
         {
             if (darkmode == false)
@@ -171,7 +202,7 @@ namespace CurrencyConverter
                 darkmode = false;
                 picmode.Image = Image.FromFile(Path.GetFullPath(@"icon\darkmode.png"));
             }
-                
+            colormode(darkmode);
         }
 
         private void button1_Click(object sender, EventArgs e)
