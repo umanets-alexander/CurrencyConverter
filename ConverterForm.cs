@@ -66,7 +66,8 @@ namespace CurrencyConverter
             }
             else
             {
-
+                toolTip.BackColor = ColorTranslator.FromHtml("#333230");
+                toolTip.ForeColor = ColorTranslator.FromHtml("#999795");
             }
             toolTip.SetToolTip(picstatus_1, "На сегодня курс 1 " + CharCode_1 + " составляет " + Math.Round(((Value_1 / Nominal_1) / (Value_2 / Nominal_2)), 2) + " " + CharCode_2 + ", вчера этот курс составлял " + Math.Round(((Previous_1 / Nominal_1) / (Previous_2 / Nominal_2)), 2) + " " + CharCode_2 + ".");
             toolTip.SetToolTip(picstatus_2, "На сегодня курс 1 " + CharCode_2 + " составляет " + Math.Round(((Value_2 / Nominal_2) / (Value_1 / Nominal_1)), 2) + " " + CharCode_1 + ", вчера этот курс составлял " + Math.Round(((Previous_2 / Nominal_2) / (Previous_1 / Nominal_1)), 2) + " " + CharCode_1 + ".");
@@ -113,7 +114,6 @@ namespace CurrencyConverter
                 screenconvert(false);
                 screentable(values, first);
             }
-
         }
 
         private void screentable(string values, bool first)
@@ -180,9 +180,20 @@ namespace CurrencyConverter
                 dataGridView.ForeColor = ColorTranslator.FromHtml("#33363B");
                 dataGridView.GridColor = ColorTranslator.FromHtml("#33363B");
                 dataGridView.DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#E0E6C8");
+                dataGridView.ColumnHeadersDefaultCellStyle.ForeColor = ColorTranslator.FromHtml("#33363B");
                 dataGridView.ColumnHeadersDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#E0E6C8");
                 dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#E0E6C8");
                 dataGridView.DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#96998A");
+            }
+            else
+            {
+                dataGridView.ForeColor = ColorTranslator.FromHtml("#999795");
+                dataGridView.GridColor = ColorTranslator.FromHtml("#0B0B17");
+                dataGridView.DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#333230");
+                dataGridView.ColumnHeadersDefaultCellStyle.ForeColor = ColorTranslator.FromHtml("#999795");
+                dataGridView.ColumnHeadersDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#333230");
+                dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#333230");
+                dataGridView.DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#333230");
             }
             for (int i = 0; i < dataGridView.RowCount; i++)
             {
@@ -229,7 +240,15 @@ namespace CurrencyConverter
                 text_1.BackColor = text_2.BackColor = ColorTranslator.FromHtml("#E0E6C8");
                 text_1.ForeColor = text_2.ForeColor = ColorTranslator.FromHtml("#33363B");
             }
-            
+            else
+            {
+                panelbottom.BackColor = panelcenter.BackColor = panelleft.BackColor = panelright.BackColor = paneltop.BackColor = this.BackColor = ColorTranslator.FromHtml("#333230");
+                button_1.BackColor = button_2.BackColor = ColorTranslator.FromHtml("#0B0B17");
+                button_1.ForeColor = button_2.ForeColor = ColorTranslator.FromHtml("#999795");
+                label_1.ForeColor = label_2.ForeColor = ColorTranslator.FromHtml("#999795");
+                text_1.BackColor = text_2.BackColor = ColorTranslator.FromHtml("#999795");
+                text_1.ForeColor = text_2.ForeColor = ColorTranslator.FromHtml("#0B0B17");
+            }
 
 
         }

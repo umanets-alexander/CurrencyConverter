@@ -99,6 +99,7 @@ namespace CurrencyConverter
             // 
             // button_2
             // 
+            this.button_2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_2.Location = new System.Drawing.Point(6, 155);
             this.button_2.Name = "button_2";
             this.button_2.Size = new System.Drawing.Size(187, 46);
@@ -155,6 +156,7 @@ namespace CurrencyConverter
             // 
             // button_1
             // 
+            this.button_1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_1.Location = new System.Drawing.Point(6, 155);
             this.button_1.Name = "button_1";
             this.button_1.Size = new System.Drawing.Size(187, 46);
