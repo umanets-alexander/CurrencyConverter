@@ -29,6 +29,7 @@ namespace CurrencyConverter
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.picgithub = new System.Windows.Forms.PictureBox();
             this.picswap = new System.Windows.Forms.PictureBox();
             this.text_2 = new System.Windows.Forms.TextBox();
@@ -45,6 +46,7 @@ namespace CurrencyConverter
             this.picmode = new System.Windows.Forms.PictureBox();
             this.panelright = new System.Windows.Forms.Panel();
             this.panelleft = new System.Windows.Forms.Panel();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picgithub)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picswap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picstatus_2)).BeginInit();
@@ -212,6 +214,10 @@ namespace CurrencyConverter
             this.panelleft.Size = new System.Drawing.Size(200, 311);
             this.panelleft.TabIndex = 2;
             // 
+            // toolTip
+            // 
+            this.toolTip.Draw += new System.Windows.Forms.DrawToolTipEventHandler(this.toolTip_Draw);
+            // 
             // ConverterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -260,6 +266,7 @@ namespace CurrencyConverter
         private System.Windows.Forms.PictureBox picmode;
         private System.Windows.Forms.Panel panelright;
         private System.Windows.Forms.Panel panelleft;
+        private System.Windows.Forms.ToolTip toolTip;
     }
 }
 
