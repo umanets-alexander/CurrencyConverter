@@ -76,21 +76,14 @@ namespace CurrencyConverter
 
         private void course()
         {
-            for (int i = 0; i<2; i++)
-                if (i == 0)
-                {
-                    if (((Value_1 / Nominal_1) / (Value_2 / Nominal_2)) > ((Previous_1 / Nominal_1) / (Previous_2 / Nominal_2)))
-                        picstatus_1.Image = Image.FromFile(Path.GetFullPath(@"icon\up.png"));
-                    else
-                        picstatus_1.Image = Image.FromFile(Path.GetFullPath(@"icon\down.png"));
-                }
-                else
-                {
-                    if (((Value_2 / Nominal_2) / (Value_1 / Nominal_1)) > ((Previous_2 / Nominal_2) / (Previous_1 / Nominal_1)))
-                        picstatus_2.Image = Image.FromFile(Path.GetFullPath(@"icon\up.png"));
-                    else
-                        picstatus_2.Image = Image.FromFile(Path.GetFullPath(@"icon\down.png"));
-                }
+            if (((Value_1 / Nominal_1) / (Value_2 / Nominal_2)) > ((Previous_1 / Nominal_1) / (Previous_2 / Nominal_2)))
+                picstatus_1.Image = Image.FromFile(Path.GetFullPath(@"icon\up.png"));
+            else
+                picstatus_1.Image = Image.FromFile(Path.GetFullPath(@"icon\down.png"));
+            if (((Value_2 / Nominal_2) / (Value_1 / Nominal_1)) > ((Previous_2 / Nominal_2) / (Previous_1 / Nominal_1)))
+                picstatus_2.Image = Image.FromFile(Path.GetFullPath(@"icon\up.png"));
+            else
+                picstatus_2.Image = Image.FromFile(Path.GetFullPath(@"icon\down.png"));
         }
 
         private void screenconvert (bool result)
@@ -209,13 +202,13 @@ namespace CurrencyConverter
                 {
                     Variables.value(dataGridView[1, dataGridView.CurrentCell.RowIndex].Value.ToString(), ref Nominal_1, ref Name_1, ref Value_1, ref Previous_1);
                     label_1.Text = CharCode_1 = dataGridView[1, dataGridView.CurrentCell.RowIndex].Value.ToString();
-                    text_2.Text = Convert.ToString((Convert.ToDouble(text_1.Text) * (Value_1 / Nominal_1)) / (Value_2 / Nominal_2));
+                    text_2.Text = Convert.ToString(Math.Round((Convert.ToDouble(text_1.Text) * (Value_1 / Nominal_1)) / (Value_2 / Nominal_2), 2));
                 }
                 else
                 {
                     Variables.value(dataGridView[1, dataGridView.CurrentCell.RowIndex].Value.ToString(), ref Nominal_2, ref Name_2, ref Value_2, ref Previous_2);
                     label_2.Text = CharCode_2 = dataGridView[1, dataGridView.CurrentCell.RowIndex].Value.ToString();
-                    text_1.Text = Convert.ToString((Convert.ToDouble(text_2.Text) * (Value_2 / Nominal_2)) / (Value_1 / Nominal_1));
+                    text_1.Text = Convert.ToString(Math.Round((Convert.ToDouble(text_2.Text) * (Value_2 / Nominal_2)) / (Value_1 / Nominal_1), 2));
                 }
                 dataGridView.Dispose();
                 screenloading("converter", null, false);
@@ -283,7 +276,7 @@ namespace CurrencyConverter
 
         private void text_1_TextChanged(object sender, EventArgs e)
         {
-            text_2.Text = Convert.ToString((Convert.ToDouble(text_1.Text) * (Value_1 / Nominal_1)) / (Value_2 / Nominal_2));
+            text_2.Text = Convert.ToString(Math.Round((Convert.ToDouble(text_1.Text) * (Value_1 / Nominal_1)) / (Value_2 / Nominal_2), 2));
         }
 
         private void picswap_Click_1(object sender, EventArgs e)
@@ -315,6 +308,8 @@ namespace CurrencyConverter
             text_2.Text = Convert.ToString(text_3);
             label_1.Text = CharCode_1;
             label_2.Text = CharCode_2;
+            course();
+            tooltips(darkmode);
         }
 
         private void text_1_KeyPress(object sender, KeyPressEventArgs e)
@@ -339,7 +334,7 @@ namespace CurrencyConverter
 
         private void text_2_TextChanged(object sender, EventArgs e)
         {
-            text_1.Text = Convert.ToString((Convert.ToDouble(text_2.Text) * (Value_2 / Nominal_2)) / (Value_1 / Nominal_1));
+            text_1.Text = Convert.ToString(Math.Round((Convert.ToDouble(text_2.Text) * (Value_2 / Nominal_2)) / (Value_1 / Nominal_1), 2));
         }
 
         private void toolTip_Draw(object sender, DrawToolTipEventArgs e)
